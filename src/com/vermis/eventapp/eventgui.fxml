@@ -10,7 +10,7 @@
 
 <SplitPane dividerPositions="0.5" orientation="VERTICAL" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.vermis.eventapp.Controller">
    <items>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="46.0" prefWidth="909.0">
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="909.0">
          <children>
             <Button fx:id="addButton" layoutX="14.0" layoutY="10.0" mnemonicParsing="false" onAction="#addEvent" text="Add Event" />
             <DatePicker fx:id="datePicker" layoutX="128.0" layoutY="10.0" prefHeight="27.0" prefWidth="137.0" />
@@ -23,6 +23,6 @@
             <Button fx:id="loadButton" layoutX="830.0" layoutY="10.0" mnemonicParsing="false" onAction="#loadList" prefHeight="27.0" prefWidth="65.0" text="Load" />
          </children>
       </AnchorPane>
-      <ListView fx:id="eventList" prefHeight="200.0" prefWidth="791.0" />
+      <ListView fx:id="eventList" prefHeight="242.0" prefWidth="909.0" />
    </items>
 </SplitPane>
