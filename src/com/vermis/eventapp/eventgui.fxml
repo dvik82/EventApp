@@ -23,6 +23,6 @@
             <Button fx:id="loadButton" layoutX="830.0" layoutY="10.0" mnemonicParsing="false" onAction="#loadList" prefHeight="27.0" prefWidth="65.0" text="Load" />
          </children>
       </AnchorPane>
-      <ListView fx:id="eventList" prefHeight="242.0" prefWidth="909.0" />
+      <ListView fx:id="eventList" onMouseClicked="#handleMouseEvent" prefHeight="242.0" prefWidth="909.0" />
    </items>
 </SplitPane>

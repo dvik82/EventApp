@@ -2,13 +2,15 @@ package com.vermis.eventapp;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 
+import javax.swing.event.HyperlinkEvent;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -37,10 +39,18 @@ public class Controller {
     @FXML
     ListView<LocalEvent> eventList;
 
-    ObservableList<LocalEvent> list = FXCollections.observableArrayList();
+    private ObservableList<LocalEvent> list = FXCollections.observableArrayList();
+
+    private ContextMenu rightClickMenu = new ContextMenu();
 
     public void initialize() {
+
         datePicker.setValue(LocalDate.now());
+
+        MenuItem clearEventsItem = new MenuItem("Clear Events");
+        clearEventsItem.setOnAction(event -> clearEventList());
+
+        rightClickMenu.getItems().add(clearEventsItem);
     }
 
     @FXML
@@ -61,9 +71,7 @@ public class Controller {
             FileWriter out = new FileWriter(new File("listView.dat"));
 
             StringBuilder sb = new StringBuilder("");
-            eventList.getItems().stream().forEach(l -> {
-                sb.append(l.toString() + "\n");
-            });
+            eventList.getItems().forEach(l -> sb.append(l.toString() + "\n"));
 
            out.write(sb.toString());
            out.close();
@@ -96,4 +104,15 @@ public class Controller {
 
     }
 
+    @FXML
+    private void handleMouseEvent(MouseEvent e) {
+        if(e.getButton() == MouseButton.SECONDARY) {
+            eventList.setOnContextMenuRequested(ev -> rightClickMenu.show(eventList, ev.getScreenX(), ev.getScreenY()));
+        }
+    }
+
+    private void clearEventList() {
+        eventList.setItems(null);
+        list.clear();
+    }
 }
