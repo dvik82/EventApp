@@ -2,15 +2,12 @@ package com.vermis.eventapp;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 
-import javax.swing.event.HyperlinkEvent;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
